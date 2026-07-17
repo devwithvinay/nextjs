@@ -7,8 +7,13 @@ export async function GET(request , context){
     try {
         const {id} = await context.params
         await connectToDatabase
-        
+
     } catch (error) {
-        
+        NextResponse.json(
+          {
+            error: "Failed",
+          },
+          { status: 500 },
+        );
     }
 }
